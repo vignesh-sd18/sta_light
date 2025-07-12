@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="1600" viewBox="0 0 800 1600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone Frame -->
+  <rect x="100" y="50" width="600" height="1200" rx="60" fill="#1a1a1a"/>
+  <rect x="120" y="70" width="560" height="1160" rx="40" fill="#2a2a2a"/>
+  
+  <!-- Screen -->
+  <rect x="140" y="90" width="520" height="1120" rx="20" fill="#000"/>
+  
+  <!-- App Interface -->
+  <rect x="140" y="90" width="520" height="80" fill="#9b87f5"/>
+  <text x="400" y="140" font-family="Arial" font-size="24" fill="white" text-anchor="middle">NEURO CAMPUS</text>
+  
+  <!-- Content Area -->
+  <rect x="180" y="200" width="440" height="200" rx="10" fill="#2a2a2a"/>
+  <text x="400" y="300" font-family="Arial" font-size="18" fill="white" text-anchor="middle">Welcome to NEURO CAMPUS</text>
+  
+  <!-- Feature Cards -->
+  <rect x="180" y="420" width="440" height="100" rx="10" fill="#2a2a2a"/>
+  <rect x="180" y="540" width="440" height="100" rx="10" fill="#2a2a2a"/>
+  <rect x="180" y="660" width="440" height="100" rx="10" fill="#2a2a2a"/>
+  
+  <!-- Bottom Navigation -->
+  <rect x="140" y="1100" width="520" height="80" fill="#2a2a2a"/>
+</svg> 
