@@ -1,0 +1,226 @@
+
+/* Wave lines animation inspired by reference image */
+.wave-lines {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 20px,
+    rgba(155, 135, 245, 0.15) 20px, /* Increased opacity from 0.07 to 0.15 */
+    rgba(155, 135, 245, 0.15) 21px  /* Increased opacity from 0.07 to 0.15 */
+  );
+  background-size: 100px 100%;
+  transform: rotate(-30deg) scale(2);
+  animation: wave-move 25s linear infinite;
+  opacity: 0.8; /* Increased from 0.5 to 0.8 */
+  z-index: 0;
+}
+
+@keyframes wave-move {
+  0% {
+    transform: rotate(-30deg) translateX(0) scale(2);
+  }
+  100% {
+    transform: rotate(-30deg) translateX(-50%) scale(2);
+  }
+}
+
+/* Enhanced wavy background to match reference image */
+.wavy-background {
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* Added z-index */
+}
+
+.wave-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 20px,
+    rgba(155, 135, 245, 0.15) 20px, /* Increased opacity from 0.06 to 0.15 */
+    rgba(155, 135, 245, 0.15) 21px  /* Increased opacity from 0.06 to 0.15 */
+  );
+  transform: rotate(-30deg) scale(2);
+  animation: wave-float 20s ease-in-out infinite;
+}
+
+.wave-curved {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/lovable-uploads/93320eb1-ed86-4aaf-ab32-e2038078e54b.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3; /* Increased from 0.15 to 0.3 */
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+@keyframes wave-float {
+  0%, 100% {
+    transform: rotate(-30deg) translateY(0) scale(2);
+  }
+  50% {
+    transform: rotate(-30deg) translateY(20px) scale(2);
+  }
+}
+
+/* 3D Shapes */
+.glass-helix {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotate-helix 12s linear infinite;
+}
+
+.glass-helix::before,
+.glass-helix::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: 45%;
+  left: 0;
+  background: linear-gradient(90deg, rgba(155, 135, 245, 0.1), rgba(30, 174, 219, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: rotateY(0deg);
+  border-radius: 999px;
+}
+
+.glass-helix::after {
+  transform: rotateY(90deg);
+}
+
+.glass-sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(155, 135, 245, 0.05) 50%,
+    rgba(30, 174, 219, 0.05) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(155, 135, 245, 0.2);
+}
+
+@keyframes rotate-helix {
+  0% {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+  100% {
+    transform: rotateY(360deg) rotateX(360deg);
+  }
+}
+
+/* Scroll reveal animations */
+.scroll-reveal-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced scroll effects */
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.scroll-zoom {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+  transform-origin: center;
+}
+
+.sticky-container {
+  position: relative;
+  height: 300vh; /* Adjust based on content needs */
+}
+
+.sticky-element {
+  position: sticky;
+  top: 50px;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sticky-content {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.sticky-content.active {
+  opacity: 1;
+}
+
+.scroll-layer {
+  will-change: transform;
+}
+
+.scroll-transform {
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+/* Expanded content for Read More buttons */
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.8s ease;
+}
+
+.expandable-content.expanded {
+  max-height: 1000px; /* Adjust based on content needs */
+}
+
+/* Scroll progress indicator */
+.scroll-progress-indicator {
+  transition: opacity 0.3s ease;
+}
+
+.scroll-progress-circle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-progress-circle-bar {
+  transform-origin: center;
+  transform: rotate(-90deg);
+  stroke-dasharray: 113;
+  stroke-dashoffset: 113;
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.scroll-progress-percentage {
+  font-size: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .wave-lines {
+    opacity: 0.2;
+  }
+}

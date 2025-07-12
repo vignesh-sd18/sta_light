@@ -1,0 +1,271 @@
+
+/* Aurora Background Effect */
+.aurora-bg {
+  background: radial-gradient(ellipse at bottom, rgba(155, 135, 245, 0.4) 0%, rgba(30, 174, 219, 0.2) 40%, rgba(0, 0, 0, 0.05) 100%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  animation: aurora-pulse 15s ease infinite;
+}
+
+.aurora-bg::before,
+.aurora-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+}
+
+.aurora-bg::before {
+  background: radial-gradient(ellipse at center, rgba(155, 135, 245, 0.4) 0%, rgba(30, 174, 219, 0.1) 60%, rgba(0, 0, 0, 0) 100%);
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: aurora-move 20s ease infinite alternate;
+}
+
+.aurora-bg::after {
+  background: radial-gradient(ellipse at bottom right, rgba(155, 135, 245, 0.4) 0%, rgba(30, 174, 219, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+  filter: blur(80px);
+  opacity: 0.3;
+  animation: aurora-move-reverse 30s ease infinite alternate;
+}
+
+@keyframes aurora-pulse {
+  0%, 100% { opacity: 0.4; filter: hue-rotate(0deg); }
+  50% { opacity: 0.6; filter: hue-rotate(15deg); }
+}
+
+@keyframes aurora-move {
+  0% { transform: translateX(-10%) translateY(-10%) scale(1.1); }
+  100% { transform: translateX(10%) translateY(10%) scale(0.9); }
+}
+
+@keyframes aurora-move-reverse {
+  0% { transform: translateX(10%) translateY(10%) scale(0.9); }
+  100% { transform: translateX(-10%) translateY(-10%) scale(1.1); }
+}
+
+/* 3D Marquee Effect */
+.marquee-3d {
+  perspective: 1000px;
+  margin: 5rem auto;
+  position: relative;
+  max-width: 1200px;
+}
+
+.marquee-grid {
+  transform-style: preserve-3d;
+  transform: rotateX(10deg);
+  transition: transform 0.8s ease;
+}
+
+.marquee-3d:hover .marquee-grid {
+  transform: rotateX(0deg);
+}
+
+.dashboard-preview {
+  position: relative;
+  transition: all 0.5s ease;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.dashboard-preview:hover {
+  z-index: 10;
+  box-shadow: 0 15px 40px -5px rgba(155, 135, 245, 0.5);
+}
+
+/* Canvas Reveal Dots Effect */
+.canvas-dots {
+  background-image: radial-gradient(circle, rgba(155, 135, 245, 0.3) 1px, transparent 1px);
+  background-size: 15px 15px;
+  background-position: center;
+  transition: all 0.5s ease;
+  transform-origin: center;
+  transform: scale(1.5);
+}
+
+.canvas-reveal:hover .canvas-dots {
+  opacity: 0.7 !important;
+  transform: scale(1);
+  animation: dots-pulse 2s ease infinite;
+}
+
+@keyframes dots-pulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.7; }
+}
+
+/* Testimonial Card Enhancements */
+.testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(155, 135, 245, 0.15),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.testimonial-card:hover::before {
+  opacity: 1;
+}
+
+.quote-text {
+  position: relative;
+  z-index: 2;
+}
+
+.quote-text::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(
+    circle at center,
+    rgba(155, 135, 245, 0.4),
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.testimonial-card:hover .quote-text::before {
+  opacity: 1;
+}
+
+/* Card Spotlight Effect */
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 12px;
+}
+
+.card-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px circle at var(--x) var(--y),
+    rgba(155, 135, 245, 0.15),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Container Scroll 3D Animation */
+.container-3d-scroll {
+  position: relative;
+  perspective: 1500px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scroll-rotator {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.scroll-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateZ(-500px) scale(2);
+  transition: all 1s ease;
+}
+
+.scroll-content.active {
+  opacity: 1;
+  transform: translateZ(0) scale(1);
+}
+
+/* Floating Dock */
+.floating-dock {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background: rgba(20, 20, 30, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  display: flex;
+  gap: 5px;
+  transition: all 0.3s ease;
+}
+
+.floating-dock:hover {
+  transform: translateX(-50%) translateY(-3px);
+  box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+}
+
+.dock-item {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dock-item:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dock-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+  background: rgba(20, 20, 30, 0.9);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.dock-item:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
